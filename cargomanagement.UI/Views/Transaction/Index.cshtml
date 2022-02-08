@@ -1,0 +1,43 @@
+﻿@model IEnumerable<cargomanagementsystem.Entity.Model.Transaction>
+<div class="row">
+    <div class="col-12">
+        <h3>Transaction</h3>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Bill no</th>
+                    <th>Customer id</th>
+                    <th>Type Of goods</th>
+                    <th>Goods quantity</th>
+                    <th>Transaction amount</th>
+                    <th>Seding Date</th>
+                    <th>Receiving Date</th>
+                    <th>Source</th>
+                    <th>Destination</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var transaction in Model)
+                {
+
+                    <tr>
+                        <td>@transaction.Bill_no</td>
+                        <td>@transaction.Sender_id</td>
+                        <td>@transaction.Type_of_goods</td>
+                        <td>@transaction.Goods_Qty</td>
+                        <td>@transaction.Trans_amount</td>
+                        <td>@transaction.Sending_date</td>
+                        <td>@transaction.Receiver_date</td>
+                        <td>@transaction.Source</td>
+                        <td>@transaction.Destination</td>
+                        <td><a asp-controller="Transaction" asp-action="UpdateTransactiondetails" asp-route-MovieId="@transaction.Bill_no">Edit</a></td>
+                        <td><a asp-controller="Movies" asp-action="DeleteMovie" asp-route-MovieId="@transaction.Bill_no">Delete</a></td>
+                    </tr>
+}
+            </tbody>
+        </table>
+    </div>
+</div>

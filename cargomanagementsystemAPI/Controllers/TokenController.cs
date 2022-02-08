@@ -28,12 +28,12 @@ namespace cargomanagementsystemAPI.Controllers
         }
 
         [HttpPost("Login")]
-        public async Task<IActionResult> Post(cargomanagementRegister _login)
+        public async Task<IActionResult>  Post(cargomanagementRegister _login)
         {
 
             if (_login != null && _login.CustEmailid != null && _login.Custpassword != null)
             {
-                var user = await GetCargomanagementRegister(_login.CustEmailid, _login.Custpassword);
+                var user = await Register(_login.CustEmailid, _login.Custpassword);
 
                 if (user != null)
                 {
@@ -66,7 +66,7 @@ namespace cargomanagementsystemAPI.Controllers
             }
         }
 
-        private async Task<cargomanagementRegister> GetCargomanagementRegister(string email, string password)
+        private async Task<cargomanagementRegister> Register(string email, string password)
         {
             cargomanagementRegister register = null;
             var result = _context.Register.Where(u => u.CustEmailid == email && u.Custpassword== password);

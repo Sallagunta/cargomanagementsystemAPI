@@ -61,12 +61,14 @@ namespace cargomanagement.UI.Controllers
                     {
                         ViewBag.status = "Ok";
                         ViewBag.message = "Transaction details saved successfully!";
+                    
                     }
                     else
                     {
                         ViewBag.status = "Error";
                         ViewBag.message = "Wrong entries!";
                     }
+
                 }
             }
             return View();

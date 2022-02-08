@@ -20,6 +20,7 @@ namespace cargomanagementsystem.Entity.Model
         public int custPhone { get; set; }
         public int custpincode { get; set; }
         public string recNmae { get; set; }
+      
         public int recID { get; set; }
         public string recAddress { get; set; }
         public string rectCity { get; set; }

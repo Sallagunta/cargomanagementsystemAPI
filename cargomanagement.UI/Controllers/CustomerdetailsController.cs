@@ -27,6 +27,9 @@ namespace cargomanagement.UI.Controllers
         {
             return View();
         }
+     
+       
+
         [HttpPost]
         public async Task<IActionResult> Customer(Customerdetails  customer)
         {
@@ -57,6 +60,43 @@ namespace cargomanagement.UI.Controllers
             }
             return View();
         }
+        public IActionResult GetCustomerdetails()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetCustomerdetails(Customerdetails customerdetails)
+        {
+            ViewBag.status = "";
+           if (Request.Form.Files.Count > 0)
+          {
+               MemoryStream ms = new MemoryStream();
+               Request.Form.Files[0].CopyTo(ms);
+
+           }
+
+            using (HttpClient client = new HttpClient())
+            {
+                StringContent content = new StringContent(JsonConvert.SerializeObject(customerdetails), Encoding.UTF8, "application/json");
+                string endPoint = _configuration["WebApiBaseUrl"] + "Cargo/GetCustomerdetails";
+                using (var response = await client.PostAsync(endPoint, content))
+                {
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        ViewBag.status = "Ok";
+                        ViewBag.message = "Customer details !";
+                    }
+                    else
+                    {
+                        ViewBag.status = "Error";
+                        ViewBag.message = "Wrong entries!";
+                    }
+                }
+            }
+            return View();
+        }
+
 
     }
 }

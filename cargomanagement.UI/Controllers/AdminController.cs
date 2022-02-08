@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -30,6 +31,9 @@ namespace cargomanagement.UI.Controllers
         {
             return View();
         }
+       
+
+
         [HttpPost]
         public async Task<IActionResult> Adminlogin(Admin login)
         {
@@ -37,11 +41,16 @@ namespace cargomanagement.UI.Controllers
             using (HttpClient client = new HttpClient())
             {
                 StringContent content = new StringContent(JsonConvert.SerializeObject(login), Encoding.UTF8, "application/json");
-                string endPoint = _configuration["WebApiBaseUrl"] + "Admin/AdminLogin";
+                string endPoint = _configuration["WebApiBaseUrl"] + "Admin/login";
                 using (var response = await client.PostAsync(endPoint, content))
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                        return RedirectToAction("Customer", "Customerdetails");
+                    {
+
+                        TempData["Admin"] = "Admin";
+                        return RedirectToAction("Transactiondetails", "Transaction");
+
+                    }
                     else
                     {
                         ViewBag.status = "Error";
@@ -75,6 +84,7 @@ namespace cargomanagement.UI.Controllers
             }
             return View();
         }
+
     }
 }
        

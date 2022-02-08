@@ -33,7 +33,7 @@ namespace cargomanagement.UI.Controllers
             using (HttpClient client = new HttpClient())
             {
                 StringContent content = new StringContent(JsonConvert.SerializeObject(register), Encoding.UTF8, "application/json");
-                string endPoint = _configuration["WebApiBaseUrl"] + " Token/Register";
+                string endPoint = _configuration["WebApiBaseUrl"] + "Register/Register";
                 using (var response = await client.PostAsync(endPoint, content))
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)

@@ -31,9 +31,27 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="AdminLogin">Admin</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller=" Customerdetails" asp-action="GetCustomerdetails">Customer</a>
+                        </li>
+                        @if (@TempData["Admin"] != null)
+                        {
+                            <li class="nav-item">
+                                @*<a class="nav-link text-dark" asp-area="" asp-controller="Register" asp-action="Login">Customer </a>*@
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="AdminLogin">Transaction </a>
+                            </li>
+                        }
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Contactus" asp-action="User">Contact us</a>
                         </li>
+                        <li class="nav-item">
+
+
+
+                        </li>
                     </ul>
+                    
                 </div>
             </div>
         </nav>

@@ -57,9 +57,10 @@
     <hr />
     @if (ViewBag.status == "Ok")
     {
-        <div class="alert alert-success">
-            @ViewBag.message
-        </div> }
+<div class="alert alert-success">
+    @ViewBag.message
+    <a asp-controller=" Customerdetails" asp-action="Index">Customer Details</a>
+</div> }
     else if (ViewBag.status == "Error")
     {
         <div class="alert alert-danger">
