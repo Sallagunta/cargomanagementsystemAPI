@@ -1,9 +1,5 @@
-﻿@model  cargomanagementsystem.Entity.Model.Customerdetails 
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model cargomanagementsystem.Entity.Model.Customerdetails
+
 <form method="post" enctype="multipart/form-data">
     <h2>Customer Details</h2><hr />
     <div class="form-group">
@@ -52,18 +48,18 @@
     </div>
 
 
-    <input type="submit" value="Transact" class="btn btn-outline-success" />
-    <input type="button" value="Cancel" class="btn btn-outline-secondary" />
+    <input type="submit" value="Save" class="btn btn-outline-success" />
+    <input type="button" value="Update" class="btn btn-outline-secondary" />
     <hr />
     @if (ViewBag.status == "Ok")
     {
 <div class="alert alert-success">
     @ViewBag.message
-    <a asp-controller=" Customerdetails" asp-action="Index">Customer Details</a>
+    <a asp-controller="Customerdetails" asp-action="Custindex">Customer</a>
 </div> }
-    else if (ViewBag.status == "Error")
-    {
-        <div class="alert alert-danger">
-            @ViewBag.message
-        </div>}
+else if (ViewBag.status == "Error")
+{
+<div class="alert alert-danger">
+    @ViewBag.message
+</div>}
 </form>

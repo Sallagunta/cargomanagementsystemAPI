@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cargomanagementsystem.DAL",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cargomanagementsystem.Entity", "cargomanagementsystem.Entity\cargomanagementsystem.Entity.csproj", "{B455BEC7-F3F4-4AD8-A31C-F4752844FE31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cargomanagement.UI", "cargomanagement.UI\cargomanagement.UI.csproj", "{C22DFCF5-8672-459B-A611-06BC2F1C4367}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cargomanagement.UI", "cargomanagement.UI\cargomanagement.UI.csproj", "{C22DFCF5-8672-459B-A611-06BC2F1C4367}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

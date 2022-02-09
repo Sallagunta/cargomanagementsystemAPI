@@ -1,0 +1,48 @@
+﻿
+@model cargomanagementsystem.Entity.Model.Transaction
+
+<div class="row">
+    <div class="col-12">
+        <h3>Bill</h3>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th> Bill_no</th>
+                    <th> Sender_id</th>
+                    <th>Type_of_goods</th>
+                    <th>Goods_Qty</th>
+                    <th>Trans_amount</th>
+                    <th>Sending_date</th>
+                    <th>Receiver_date</th>
+                    <th>Source</th>
+                    <th>Destination</th>
+                    
+                    <th>Edit</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+              
+
+                    <tr>
+                        <td>Transaction.custname</td>
+                        <td>Transaction.custId</td>
+                        <td>Transaction.custAddress</td>
+                        <td>Transaction.custCity</td>
+                        <td>Transaction.custPhone</td>
+                        <td>Transaction.custpincode</td>
+                        <td>Transaction.recNmae</td>
+                        <td>Transaction.recID</td>
+                        <td>Transaction.recAddress</td>
+                        <td>Transaction.rectCity</td>
+                        <td>Transaction.recPhone</td>
+                        <td>Transaction.recpincode</td>
+                        <td><a asp-controller="Transaction" asp-action="UpdateTransactiondetails">Edit</a></td>
+                       
+                    </tr>
+}
+            </tbody>
+        </table>
+    </div>
+</div>

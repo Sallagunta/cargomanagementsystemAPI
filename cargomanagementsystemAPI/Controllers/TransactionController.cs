@@ -43,12 +43,11 @@ namespace cargomanagementsystemAPI.Controllers
             _transactionServices.UpdateTransactiondetails(transaction);
         return Ok("Transaction details updated successfully!!");
     }
-    [HttpGet("GetTranscation_detailsbyno")]
-    public IActionResult GetTransactionbyBillno(int Bill_no)
+    [HttpGet("GetTransactionbyBillno")]
+    public Transaction GetTransactionbyBillno(int Bill_no)
     {
-           _transactionServices.GetTransactionbyBillno(Bill_no);
+          return _transactionServices.GetTransactionbyBillno(Bill_no);
 
-            return Ok("Get details by id");
             
 
     }

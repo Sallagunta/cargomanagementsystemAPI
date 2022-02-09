@@ -1,0 +1,50 @@
+﻿
+@model IEnumerable<cargomanagementsystem.Entity.Model.Customerdetails>
+
+<div class="row">
+    <div class="col-12">
+        <h3>Transaction</h3>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Customer name</th>
+                    <th>Customer id</th>
+                    <th>Customer address</th>
+                    <th>Customer city</th>
+                    <th>Customer phone</th>
+                    <th>Customer pincode</th>
+                    <th>Receiver name</th>
+                    <th>Receiver id</th>
+                    <th>Receiver address</th>
+                    <th>Receiver city</th>
+                    <th>Receiver phone</th>
+                    <th>Receiver pincode</th>
+                    @*<th>Edit</th>
+                    <th>Delete</th>*@
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var customer in Model)
+                {
+
+    <tr>
+        <td>@customer.custname</td>
+        <td>@customer.custId</td>
+        <td>@customer.custAddress</td>
+        <td>@customer.custCity</td>
+        <td>@customer.custPhone</td>
+        <td>@customer.custpincode</td>
+        <td>@customer.recNmae</td>
+        <td>@customer.recID</td>
+        <td>@customer.recAddress</td>
+        <td>@customer.rectCity</td>
+        <td>@customer.recPhone</td>
+        <td>@customer.recpincode</td>
+        @*<td><a asp-controller="Transaction" asp-action="UpdateTransactiondetails">Edit</a></td>
+        <td><a asp-controller="Cargo" asp-action="Deletecustdetails">Delete</a></td>*@
+    </tr>}
+            </tbody>
+        </table>
+    </div>
+</div>

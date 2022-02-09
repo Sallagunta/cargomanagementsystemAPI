@@ -19,7 +19,7 @@ namespace cargomanagement.UI.Controllers
         {
             _configuration = configuration;
         }
-      
+
         public async Task<IActionResult> Index()
         {
             IEnumerable<Transaction> transresult = null;
@@ -37,7 +37,7 @@ namespace cargomanagement.UI.Controllers
             }
             return View(transresult);
         }
-            public IActionResult Transactiondetails()
+        public IActionResult Transactiondetails()
         {
             return View();
         }
@@ -49,7 +49,7 @@ namespace cargomanagement.UI.Controllers
             {
                 MemoryStream ms = new MemoryStream();
                 Request.Form.Files[0].CopyTo(ms);
-                
+
             }
             using (HttpClient client = new HttpClient())
             {
@@ -61,7 +61,7 @@ namespace cargomanagement.UI.Controllers
                     {
                         ViewBag.status = "Ok";
                         ViewBag.message = "Transaction details saved successfully!";
-                    
+
                     }
                     else
                     {
@@ -73,6 +73,26 @@ namespace cargomanagement.UI.Controllers
             }
             return View();
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetTransactionbyBillno()
+        {
+            IEnumerable<Transaction> transresult = null;
+            using (HttpClient client = new HttpClient())
+            {
+                string endPoint = _configuration["WebApiBaseUrl"] + "Transaction/GetTransactionbyBillno";
+                using (var response = await client.GetAsync(endPoint))
+                {
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        var result = await response.Content.ReadAsStringAsync();
+                        transresult = JsonConvert.DeserializeObject<IEnumerable<Transaction>>(result);
+                    }
+                }
+
+            }
+            return View(transresult);
+        }
+
     }
-    
 }
