@@ -1,4 +1,5 @@
 ﻿using cargomanagementsystem.Entity.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
@@ -41,6 +42,7 @@ namespace cargomanagement.UI.Controllers
         {
             return View();
         }
+    
         [HttpPost]
         public async Task<IActionResult> Transactiondetails(Transaction transaction)
         {
@@ -73,21 +75,22 @@ namespace cargomanagement.UI.Controllers
             }
             return View();
         }
-
-        [HttpGet]
-        public async Task<IActionResult> GetTransactionbyBillno()
+       
+       [HttpGet]
+        public async Task<IActionResult> GetTransactionbyBillno(int Bill_no)
         {
-            IEnumerable<Transaction> transresult = null;
+            Transaction transresult = null;
             using (HttpClient client = new HttpClient())
             {
-                string endPoint = _configuration["WebApiBaseUrl"] + "Transaction/GetTransactionbyBillno";
+                string endPoint = _configuration["WebApiBaseUrl"] + "Transaction/GetTransactionbyBillno"+Bill_no;
                 using (var response = await client.GetAsync(endPoint))
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         var result = await response.Content.ReadAsStringAsync();
-                        transresult = JsonConvert.DeserializeObject<IEnumerable<Transaction>>(result);
+                        transresult = JsonConvert.DeserializeObject<Transaction>(result);
                     }
+                    
                 }
 
             }

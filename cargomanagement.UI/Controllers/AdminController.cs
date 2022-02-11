@@ -72,6 +72,7 @@ namespace cargomanagement.UI.Controllers
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
+                        TempData["Admin"] = "Admin";
                         ViewBag.status = "Ok";
                         ViewBag.message = "Register successfully!";
                     }

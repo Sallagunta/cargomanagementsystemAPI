@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - cargomanagement.UI</title>
+    <title> Cargomanagement </title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -21,20 +21,27 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+
+
+                        
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Register" asp-action="Register">User Registration</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Register" asp-action="Register">User </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Register" asp-action="Login">User Login</a>
-                        </li>
+                        @if (@TempData["Register"] != null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Register" asp-action="Login">User Login</a>
+                            </li>
+                        }
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="AdminLogin">Admin</a>
                         </li>
                         
+
                         @if (@TempData["Admin"] != null)
                         {
                             <li class="nav-item">
-                               <a class="nav-link text-dark" asp-area="" asp-controller="Customerdetails" asp-action="Custindex">Customer </a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Customerdetails" asp-action="Custindex">Customer </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="AdminLogin">Transaction </a>

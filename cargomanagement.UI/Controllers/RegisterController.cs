@@ -38,6 +38,7 @@ namespace cargomanagement.UI.Controllers
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
+                        TempData["Register"] = "Register";
                         ViewBag.status = "Ok";
                         ViewBag.message = "Register successfully!";
                     }
@@ -65,7 +66,10 @@ namespace cargomanagement.UI.Controllers
                 using (var response = await client.PostAsync(endPoint, content))
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        TempData["Register"] = "Register";
                         return RedirectToAction("Customer", "Customerdetails");
+                    }
                     else
                     {
                         ViewBag.status = "Error";

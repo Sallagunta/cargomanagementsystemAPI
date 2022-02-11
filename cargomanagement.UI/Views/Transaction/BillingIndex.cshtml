@@ -8,7 +8,7 @@
         <table class="table table-light table-bordered table-hover">
             <thead>
                 <tr>
-                    <th> Bill_no</th>
+                   // <th> Bill_no</th>
                     <th> Sender_id</th>
                     <th>Type_of_goods</th>
                     <th>Goods_Qty</th>
@@ -24,20 +24,19 @@
             </thead>
             <tbody>
               
-
+               
+                 
                     <tr>
-                        <td>Transaction.custname</td>
-                        <td>Transaction.custId</td>
-                        <td>Transaction.custAddress</td>
-                        <td>Transaction.custCity</td>
-                        <td>Transaction.custPhone</td>
-                        <td>Transaction.custpincode</td>
-                        <td>Transaction.recNmae</td>
-                        <td>Transaction.recID</td>
-                        <td>Transaction.recAddress</td>
-                        <td>Transaction.rectCity</td>
-                        <td>Transaction.recPhone</td>
-                        <td>Transaction.recpincode</td>
+                       // <td>Transaction.Bill_no</td>
+                        <td>Transaction.Sender_id</td>
+                        <td>Transaction.Type_of_goods</td>
+                        <td>Transaction.Goods_Qty</td>
+                        <td>Transaction.Trans_amount</td>
+                        <td>Transaction.Sending_date</td>
+                        <td>Transaction.Receiver_date</td>
+                        <td>Transaction.Source</td>
+                        <td>Transaction.Destination</td>
+                       
                         <td><a asp-controller="Transaction" asp-action="UpdateTransactiondetails">Edit</a></td>
                        
                     </tr>

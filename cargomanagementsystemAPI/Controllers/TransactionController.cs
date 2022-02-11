@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using cargomanagementsystem.BAL.Services;
 using cargomanagementsystem.Entity.Model;
+using Microsoft.AspNetCore.Authorization;
 
 namespace cargomanagementsystemAPI.Controllers
 {
@@ -18,6 +19,7 @@ namespace cargomanagementsystemAPI.Controllers
         {
             _transactionServices = transactionServices;
         }
+        
         [HttpGet("GetTransactiondetails")]
 
         public IEnumerable<Transaction> GetTransactiondetails()
